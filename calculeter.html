@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculeter.css">
+</head>
+<body>
+    <div class="calculator">
+
+        <input type="text" id="inp" class="calculator-screen" value="" disabled />
+        
+        <div class="calculator-keys">
+          
+          <button type="button" id="btn" class="operator" value="+">+</button>
+          <button type="button" id="btn" class="operator" value="-">-</button>
+          <button type="button" id="btn" class="operator" value="*">&times;</button>
+          <button type="button" id="btn" class="operator" value="/">&divide;</button>
+      
+          <button type="button" id="btn" value="7">7</button>
+          <button type="button" id="btn" value="8">8</button>
+          <button type="button" id="btn" value="9">9</button>
+      
+      
+          <button type="button" id="btn" value="4">4</button>
+          <button type="button" id="btn" value="5">5</button>
+          <button type="button" id="btn" value="6">6</button>
+      
+      
+          <button type="button" id="btn" value="1">1</button>
+          <button type="button" id="btn" value="2">2</button>
+          <button type="button" id="btn" value="3">3</button>
+      
+      
+          <button type="button" id="btn" value="0">0</button>
+          <button type="button" id="btn" class="decimal" value=".">.</button>
+          <button type="button" id="btn" class="all-clear" value="all-clear">AC</button>
+      
+          <button type="button" id="btn" class="equal-sign operator" value="=">=</button>
+      
+        </div>
+      </div>
+      <script>
+        var inp=document.getElementById("inp")
+        var btn=document.querySelectorAll("#btn")
+        btn.forEach((e)=>{
+          e.addEventListener("click",ele=>{
+            if(ele.target.value=="="){
+              inp.value=eval(inp.value)
+            }
+            if(ele.target.value=="AC"){
+                inp.value=0
+            }
+            else{
+                inp.value+=ele.target.value
+            }
+          })
+        })
+      </script>
+</body>
+</html>
